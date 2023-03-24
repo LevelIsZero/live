@@ -30,6 +30,12 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
     public MyChannelInterceptor myChannelInterceptor(){
         return new MyChannelInterceptor();
     }
+    /*
+    * 使用registerStompEndpoints方法注册一个websocket终端连接。
+    * 这里需要了解两个东西：stomp和sockjs
+    * 1、sockjs：是对于websocket的封装，如果单纯使用websocket的话效率会非常低，我们需要的编码量也会增多，而且如果浏览器不支持
+    *   websocket，sockjs会自动降级为轮询策略，并模拟
+    * */
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         //添加访问域名限制可以防止跨域soket连接
