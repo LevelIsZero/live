@@ -35,6 +35,8 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
     * 这里需要了解两个东西：stomp和sockjs
     * 1、sockjs：是对于websocket的封装，如果单纯使用websocket的话效率会非常低，我们需要的编码量也会增多，而且如果浏览器不支持
     *   websocket，sockjs会自动降级为轮询策略，并模拟websocket，保证客户端和服务端可以通信。
+    * 2、stomp是一种简单(流)文本定向消息协议，提供了可互操作的连接格式，允许STOMP客户端与STOMP消息代理（RabbitMQ就是一个消息代理）
+    *   进行交互。
     * */
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
@@ -44,6 +46,10 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
     }
 
+    /*
+    * 使用configureMessageBroker来配置消息代理（注意：我们将要部署的服务器也应该要有RabbitMQ）。
+    * 这里配置了两个代理转播策略，就是说客户端订阅了前缀为"/topic,/queue"频道都会通过消息代理(RabbbitMQ)来转发，与spring没关系，完全解耦。
+    * */
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
         /*.enableSimpleBroker("/topic","/queue");*/
