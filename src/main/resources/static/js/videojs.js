@@ -19831,7 +19831,7 @@ var TextTrackSettings = function (_Component) {
    * Gets an object of text track settings (or null).
    *
    * @return {Object}
-   *         An object with config values parsed from the DOM or localStorage.
+   *         An object with com.life.test.config values parsed from the DOM or localStorage.
    */
 
 
@@ -19853,7 +19853,7 @@ var TextTrackSettings = function (_Component) {
    * Sets text track settings from an object of values.
    *
    * @param {Object} values
-   *        An object with config values parsed from the DOM or localStorage.
+   *        An object with com.life.test.config values parsed from the DOM or localStorage.
    */
 
 
@@ -23751,7 +23751,7 @@ if (typeof HTMLVideoElement === 'undefined' && Dom.isReal()) {
  *        Video element or video element ID
  *
  * @param {Object} [options]
- *        Optional options object for config/settings
+ *        Optional options object for com.life.test.config/settings
  *
  * @param {Component~ReadyCallback} [ready]
  *        Optional ready callback
